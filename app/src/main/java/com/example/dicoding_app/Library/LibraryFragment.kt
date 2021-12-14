@@ -1,5 +1,6 @@
 package com.example.dicoding_app.Library
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -15,6 +16,7 @@ class LibraryFragment : AppCompatActivity(), View.OnClickListener {
     private lateinit var rvHeroes: RecyclerView
     private var list: ArrayList<Hero> = arrayListOf()
 
+    @SuppressLint("CutPasteId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_library)
@@ -33,15 +35,15 @@ class LibraryFragment : AppCompatActivity(), View.OnClickListener {
         showRecyclerList()
     }
     override fun onClick(v: View) {
-        when (v.id) {
-            R.id.rv_heroes -> {
-                val moveWithDataIntent = Intent(this@LibraryFragment, DetailFragment::class.java)
-                moveWithDataIntent.putExtra(DetailFragment.EXTRA_NAME, "heroesNames")
-                moveWithDataIntent.putExtra(DetailFragment.EXTRA_DETAIL, "heroesDetails")
-                moveWithDataIntent.putExtra(DetailFragment.EXTRA_PHOTO, "heroesImages")
-                startActivity(moveWithDataIntent)
-            }
-        }
+//        when (v.id) {
+//            R.id.rv_heroes -> {
+//                val moveWithDataIntent = Intent(this@LibraryFragment, DetailFragment::class.java)
+//                moveWithDataIntent.putExtra(DetailFragment.EXTRA_NAME, "heroesNames")
+//                moveWithDataIntent.putExtra(DetailFragment.EXTRA_DETAIL, "heroesDetails")
+//                moveWithDataIntent.putExtra(DetailFragment.EXTRA_PHOTO, "heroesImages")
+//                startActivity(moveWithDataIntent)
+//            }
+//        }
     }
 
     private fun showSelectedHero(hero: Hero) {

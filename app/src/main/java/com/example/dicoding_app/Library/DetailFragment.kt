@@ -1,5 +1,6 @@
 package com.example.dicoding_app.Library
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,36 +15,39 @@ import com.example.dicoding_app.R
 class DetailFragment : AppCompatActivity() {
 
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_detail)
 
-        val tvDataReceived: TextView = findViewById(R.id.rv_heroes_detail)
+//        val tvDataReceived: TextView = findViewById(R.id.rv_heroes_detail)
 
-        val tvSetName: TextView = findViewById(R.id.tv_set_name)
-        val imgSetPhoto: ImageView = findViewById(R.id.img_item_photo)
-        val tvSetDetail: TextView = findViewById(R.id.tv_set_detail)
+        val tvSetName: TextView = findViewById(R.id.text_buah)
+        val imgSetPhoto: ImageView = findViewById(R.id.img_buah)
+        val tvSetDetail: TextView = findViewById(R.id.text_buah2)
 
         val tName  = intent.getStringExtra(EXTRA_NAME)
-        val tImg = intent.getStringExtra(EXTRA_PHOTO)
+        val tImg = intent.getIntExtra(EXTRA_PHOTO, R.drawable.apple)
         val tIDetail = intent.getStringExtra(EXTRA_DETAIL)
 
         /*
         replaceFragment(libraryFragment)
 */
-        findViewById<BottomNavigationItemView>(R.id.libraryFragment).setOnClickListener {
-            val intent = Intent(this, LibraryFragment::class.java)
-            startActivity(intent)
-        }
-        findViewById<BottomNavigationItemView>(R.id.profilFragment).setOnClickListener {
-            val intent = Intent(this, ProfilFragment::class.java)
-            startActivity(intent)
-        }
+//        findViewById<BottomNavigationItemView>(R.id.libraryFragment).setOnClickListener {
+//            val intent = Intent(this, LibraryFragment::class.java)
+//            startActivity(intent)
+//        }
+//        findViewById<BottomNavigationItemView>(R.id.profilFragment).setOnClickListener {
+//            val intent = Intent(this, ProfilFragment::class.java)
+//            startActivity(intent)
+//        }
         tvSetName.text = tName
-        Glide.with(this)
-            .load(tImg)
-            .apply(RequestOptions())
-            .into(imgSetPhoto)
+//        Glide.with(this)
+//            .load(tImg)
+//            .apply(RequestOptions())
+//            .into(imgSetPhoto)
+
+            imgSetPhoto.setBackgroundResource(tImg)
         tvSetDetail.text = tIDetail
 
     }

@@ -25,6 +25,7 @@ class ListHeroAdapter (private val listHero: ArrayList<Hero>): RecyclerView.Adap
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ListViewHolder {
         val view: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_row_hero, viewGroup, false)
+//        this.setOnItemClickCallback()
         return ListViewHolder(view)
     }
 
